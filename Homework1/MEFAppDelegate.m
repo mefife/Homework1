@@ -44,30 +44,31 @@
 
 - (IBAction)radioWritten:(id)sender
 {
-    NSLog(@"Written");
-    self.myNumberFormatted =[[NSNumberFormatter alloc] init];
+    //NSLog(@"Written");
     [self.myNumberFormatted setNumberStyle:NSNumberFormatterSpellOutStyle];
-    NSNumber * myNumber = [self.myNumberFormatted:@"42"];
-    NSLog(@"%@", myNumber);
-    //self.outputNumber.stringValue = [self.myNumberFormatted stringFromNumber:[NSNumber numberWithFloat:self.outputNumber.stringValue]];
+    self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    //NSLog(@"%@", [self.myNumberFormatted stringFromNumber:(NSNumber *) @"45.0"]);
     //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
     
 }
 
 - (IBAction)radioDecimal:(id)sender
 {
-    NSLog(@"Decimal");
+    //NSLog(@"Decimal");
     [self.myNumberFormatted setNumberStyle:NSNumberFormatterDecimalStyle];
-    self.outputNumber.stringValue = (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
-    NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
+    self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    //[self.outputNumber setStringValue:[self.myNumberFormatted numberFromString:self.outputNumber.stringValue]];
+    //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
 }
 
 - (IBAction)radioScience:(id)sender
 {
-    NSLog(@"Science");
+    //NSLog(@"Science");
     [self.myNumberFormatted setNumberStyle:NSNumberFormatterScientificStyle];
-    self.outputNumber.stringValue = (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
-    NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
+    self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    //NSLog(@"%@", [self.myNumberFormatted numberFromString:self.outputNumber.stringValue]);
+    //self.outputNumber.stringValue = (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
 }
 
 - (IBAction)speakButtonpushed:(id)sender
