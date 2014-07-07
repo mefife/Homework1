@@ -45,18 +45,22 @@
 - (IBAction)radioWritten:(id)sender
 {
     //NSLog(@"Written");
-    [self.myNumberFormatted setNumberStyle:NSNumberFormatterSpellOutStyle];
     self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    [self.myNumberFormatted setNumberStyle:NSNumberFormatterSpellOutStyle];
+    //self.outputNumber.stringValue = [self.myNumberFormatted stringFromNumber:(NSNumber *)self.outputNumber.objectValue];
+    self.outputNumber.formatter = self.myNumberFormatted;
     //NSLog(@"%@", [self.myNumberFormatted stringFromNumber:(NSNumber *) @"45.0"]);
     //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
-    
+
 }
 
 - (IBAction)radioDecimal:(id)sender
 {
     //NSLog(@"Decimal");
-    [self.myNumberFormatted setNumberStyle:NSNumberFormatterDecimalStyle];
+    //[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
     self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    [self.myNumberFormatted setNumberStyle:NSNumberFormatterDecimalStyle];
+    self.outputNumber.formatter = self.myNumberFormatted;
     //[self.outputNumber setStringValue:[self.myNumberFormatted numberFromString:self.outputNumber.stringValue]];
     //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
 }
@@ -64,8 +68,10 @@
 - (IBAction)radioScience:(id)sender
 {
     //NSLog(@"Science");
-    [self.myNumberFormatted setNumberStyle:NSNumberFormatterScientificStyle];
+    //[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
     self.outputNumber.objectValue = [self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
+    [self.myNumberFormatted setNumberStyle:NSNumberFormatterScientificStyle];
+    self.outputNumber.formatter = self.myNumberFormatted;
     //NSLog(@"%@", [self.myNumberFormatted numberFromString:self.outputNumber.stringValue]);
     //self.outputNumber.stringValue = (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue];
     //NSLog(@"%@", (NSString *)[self.myNumberFormatted numberFromString:self.outputNumber.stringValue] );
